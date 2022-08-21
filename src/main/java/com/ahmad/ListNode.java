@@ -20,10 +20,11 @@ public class ListNode {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");
-        ListNode tempNode = new ListNode(val, next);
+        ListNode tempNode = new ListNode(this.val, this.next);
         while (tempNode.next != null) {
             result.append(tempNode.val);
             result.append(',');
+            tempNode = tempNode.next;
         }
         result.append(tempNode.val);
         result.append(']');
