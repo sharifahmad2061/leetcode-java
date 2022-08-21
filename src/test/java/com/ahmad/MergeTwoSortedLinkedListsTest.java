@@ -21,4 +21,16 @@ public class MergeTwoSortedLinkedListsTest {
                                                         4, null))))));
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
+
+    @Test
+    void test2() {
+        ListNode listNode1 = new ListNode(2, null);
+        ListNode listNode2 = new ListNode(1, null);
+        ListNode actual = mergeTwoSortedLinkedLists.mergeTwoLists(listNode1, listNode2);
+        ListNode expected = new ListNode(
+                1, new ListNode(
+                        2, null));
+        Assertions.assertEquals(expected.toString(), actual.toString());
+
+    }
 }
