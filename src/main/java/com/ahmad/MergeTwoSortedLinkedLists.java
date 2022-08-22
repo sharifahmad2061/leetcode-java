@@ -41,7 +41,7 @@ public class MergeTwoSortedLinkedLists {
             return list1;
         else {
             List<Integer> ord = new ArrayList<>();
-            while (list1.next != null && list2.next != null) {
+            while (list1 != null && list2 != null) {
                 if (list1.val <= list2.val) {
                     ord.add(list1.val);
                     list1 = list1.next;
@@ -50,12 +50,16 @@ public class MergeTwoSortedLinkedLists {
                     list2 = list2.next;
                 }
             }
-            if (list1.val <= list2.val) {
-                ord.add(list1.val);
-                ord.add(list2.val);
-            } else {
-                ord.add(list2.val);
-                ord.add(list1.val);
+            if (list1 == null) {
+                while (list2 != null) {
+                    ord.add(list2.val);
+                    list2 = list2.next;
+                }
+            } else if (list2 == null) {
+                while (list1 != null) {
+                    ord.add(list1.val);
+                    list1 = list1.next;
+                }
             }
             ListNode res = new ListNode(ord.get(0), null);
             ListNode pointer = res;
