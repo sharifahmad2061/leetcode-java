@@ -1,5 +1,8 @@
 package com.ahmad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MergeTwoSortedLinkedLists {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if (list1 != null && list2 != null) {
@@ -37,24 +40,30 @@ public class MergeTwoSortedLinkedLists {
         else if (list2 == null)
             return list1;
         else {
-            ListNode res = null;
-            if (list1.val <= list2.val) {
-                res = new ListNode(list1.val, list2);
-                list1 = list1.next;
-            } else {
-                res = new ListNode(list2.val, list1);
-                list2 = list2.next;
-            }
-            while (list1 != null && list2 != null) {
+            List<Integer> ord = new ArrayList<>();
+            while (list1.next != null && list2.next != null) {
                 if (list1.val <= list2.val) {
-                    ListNode temp = new ListNode(list1.next.val, list1.next.next);
-                    list1.next = list2;
-                    list1 = temp;
+                    ord.add(list1.val);
+                    list1 = list1.next;
                 } else {
-                    ListNode temp = new ListNode(list2.next.val, list2.next.next);
-                    list2.next = list1;
-                    list2 = temp;
+                    ord.add(list2.val);
+                    list2 = list2.next;
                 }
+            }
+            if (list1.val <= list2.val) {
+                ord.add(list1.val);
+                ord.add(list2.val);
+            } else {
+                ord.add(list2.val);
+                ord.add(list1.val);
+            }
+            ListNode res = new ListNode(ord.get(0), null);
+            ListNode pointer = res;
+            for (int i = 1; i < ord.size(); i++) {
+                int val = ord.get(i);
+                ListNode temp = new ListNode(val);
+                pointer.next = temp;
+                pointer = pointer.next;
             }
             return res;
         }
