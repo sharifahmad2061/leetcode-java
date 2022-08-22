@@ -11,7 +11,7 @@ public class MergeTwoSortedLinkedListsTest {
     void test1() {
         ListNode listNode1 = new ListNode(1, new ListNode(2, new ListNode(4, null)));
         ListNode listNode2 = new ListNode(1, new ListNode(3, new ListNode(4, null)));
-        ListNode actual = mergeTwoSortedLinkedLists.mergeTwoLists(listNode1, listNode2);
+        ListNode actual = mergeTwoSortedLinkedLists.mergeTwoLists2(listNode1, listNode2);
         ListNode expected = new ListNode(
                 1, new ListNode(
                         1, new ListNode(
@@ -26,7 +26,7 @@ public class MergeTwoSortedLinkedListsTest {
     void test2() {
         ListNode listNode1 = new ListNode(2, null);
         ListNode listNode2 = new ListNode(1, null);
-        ListNode actual = mergeTwoSortedLinkedLists.mergeTwoLists(listNode1, listNode2);
+        ListNode actual = mergeTwoSortedLinkedLists.mergeTwoLists2(listNode1, listNode2);
         ListNode expected = new ListNode(
                 1, new ListNode(
                         2, null));
