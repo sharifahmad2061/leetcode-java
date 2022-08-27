@@ -6,6 +6,8 @@ public class BestTimeToBuyAndSellStock {
         int profit = 0;
         for (int index = 0; index < prices.length - 1; index++) {
             for (int index2 = index + 1; index2 < prices.length; index2++) {
+                if (prices[index2] < prices[index])
+                    continue;
                 if (prices[index2] - prices[index] > profit)
                     profit = prices[index2] - prices[index];
             }
@@ -13,3 +15,5 @@ public class BestTimeToBuyAndSellStock {
         return profit;
     }
 }
+// strategy 1
+// sort by prices and k
