@@ -42,4 +42,11 @@ public class BestTimeToBuyAndSellStockTest {
     // Assertions.assertEquals(0, profit);
 
     // }
+
+    @Test
+    void test4() {
+        int[] prices = { 1, 2 };
+        int profit = BestTimeToBuyAndSellStock.maxProfit(prices);
+        Assertions.assertEquals(1, profit);
+    }
 }
