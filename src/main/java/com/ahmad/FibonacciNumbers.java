@@ -4,12 +4,14 @@ public class FibonacciNumbers {
     public int fib(int n) {
         if (n <= 1)
             return n;
-        int[] fibArray = new int[n + 1];
-        fibArray[0] = 0;
-        fibArray[1] = 1;
+        int a = 0;
+        int b = 1;
+        int sum = 0;
         for (int i = 2; i <= n; i++) {
-            fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+            sum = a + b;
+            a = b;
+            b = sum;
         }
-        return fibArray[n];
+        return sum;
     }
 }
