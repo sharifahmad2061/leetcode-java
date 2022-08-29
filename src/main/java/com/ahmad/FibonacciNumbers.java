@@ -10,8 +10,10 @@ public class FibonacciNumbers {
         int returnValue = 0;
         if (fibonacciMapping.containsKey(n))
             returnValue = fibonacciMapping.get(n);
-        if (n <= 2)
+        if (n == 1)
             returnValue = 1;
+        else if (n == 0)
+            returnValue = 0;
         else {
             returnValue = fib(n - 1) + fib(n - 2);
         }
