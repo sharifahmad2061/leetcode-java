@@ -42,15 +42,25 @@ public class RemovingStarsFromAString {
         // return removeStars(s.substring(index + 1));
         // }
         // }
-        String res = s;
-        while (res.contains("*")) {
-            int index = res.indexOf("*");
-            if (index - 1 > 0) {
-                res = res.substring(0, index - 1) + res.substring(index + 1);
-            } else {
-                res = res.substring(index + 1);
-            }
+        // String res = s;
+        // while (res.contains("*")) {
+        // int index = res.indexOf("*");
+        // if (index - 1 > 0) {
+        // res = res.substring(0, index - 1) + res.substring(index + 1);
+        // } else {
+        // res = res.substring(index + 1);
+        // }
+        // }
+        // return res;
+
+        StringBuilder res = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == '*') {
+                if (res.length() > 0)
+                    res.setLength(res.length() - 1);
+            } else
+                res.append(c);
         }
-        return res;
+        return res.toString();
     }
 }
