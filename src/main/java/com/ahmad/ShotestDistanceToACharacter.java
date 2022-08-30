@@ -7,7 +7,7 @@ public class ShotestDistanceToACharacter {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == c) {
                 for (int j = i; j > hitIndex; j--) {
-                    res[j] = i - j;
+                    res[j] = ((i - j) <= (j - hitIndex)) || (hitIndex < 0) ? (i - j) : (j - hitIndex);
                 }
                 hitIndex = i;
             }
