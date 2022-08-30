@@ -15,4 +15,13 @@ public class ShotestDistanceToACharacterTest {
         int[] expected = { 3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0 };
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void whenTargetCharacterIsNotLastOccuring() {
+        String s = "aaba";
+        char c = 'b';
+        int[] actual = shotestDistanceToACharacter.shortestToChar(s, c);
+        int[] expected = { 2, 1, 0, 1 };
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }

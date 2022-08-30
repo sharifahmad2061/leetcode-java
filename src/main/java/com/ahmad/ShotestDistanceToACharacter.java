@@ -10,6 +10,8 @@ public class ShotestDistanceToACharacter {
                     res[j] = ((i - j) <= (j - hitIndex)) || (hitIndex < 0) ? (i - j) : (j - hitIndex);
                 }
                 hitIndex = i;
+            } else {
+                res[i] = i - hitIndex;
             }
         }
         return res;
