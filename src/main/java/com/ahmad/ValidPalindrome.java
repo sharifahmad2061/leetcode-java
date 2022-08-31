@@ -14,6 +14,7 @@ public class ValidPalindrome {
             if (isLetterOrDigit(c))
                 onlyLettersAndNumbers = onlyLettersAndNumbers + c;
         }
-        return onlyLettersAndNumbers == new StringBuilder(onlyLettersAndNumbers).reverse().toString() ? true : false;
+        return onlyLettersAndNumbers.contentEquals(
+                new StringBuilder(onlyLettersAndNumbers).reverse().toString()) ? true : false;
     }
 }
